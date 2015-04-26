@@ -6,7 +6,11 @@ The data set was gathered from a project for recognizing human activity using th
 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-The input data set is split up into two sections, "training" and "test". Each of those two sections contains 3 files - the measurements, the subject identifiers, and the activity identifiers.  Each of those files are conceptually 3 parts of the same table and can be combined column-wise.  The two sections themselves can then be combined row-wise.  An additional two files are provided by the data set that include the names of the features that were measured (one for each column) and labels for the activities.  
+The input data set is split up into two sections, "training" and "test". Each of those two sections contains 3 files - the measurements, the subject identifiers, and the activity identifiers.  Each of those files are conceptually 3 parts of the same table and can be combined column-wise.  The two sections themselves can then be combined row-wise.  An additional two files are provided by the data set that include the names of the features that were measured (one for each column) and labels for the activities.
+
+#### Citation
+
+Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. A Public Domain Dataset for Human Activity Recognition Using Smartphones. 21th European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning, ESANN 2013. Bruges, Belgium 24-26 April 2013.
 
 ### The Script
 
