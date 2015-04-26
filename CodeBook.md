@@ -37,6 +37,6 @@ In the R console load the run_analysis.R file using the source() command, and ty
 
 means <- tidyMeans()
 
-This function tidyMeans() in the run_analysis.R file will load the data and calculate the means for every Subject/Activity/Measurement combination.  The output will be written to the file "means.txt" in your working directory. 
+This function tidyMeans() in the run_analysis.R file will load the data and calculate the means for every Subject/Activity/Measurement combination.  The output will be written to the file "means.txt" in your working directory.
 
 
