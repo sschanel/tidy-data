@@ -21,10 +21,13 @@ cleanupName <- function(name) {
 
 tidyMeans <- function() {
 
+    ## For reproducibility (mentioned in the week 1 lectures), download the file
+    ## here in the script.
     download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",
                   destfile="UCI HAR Dataset.zip", 
                   method="curl")
     
+    ## Unzip the data set.
     unzip("UCI HAR Dataset.zip")
     
     ## (1) Merge the data sets
@@ -43,24 +46,26 @@ tidyMeans <- function() {
     subject <- rbind(subject_train, subject_test)
     
     ## (4) Label the data set with descriptive variable names
-    ## Easier to follow if we can do this sooner than later.
-    ## Load the labels
+    ## Easier to follow if we do this sooner than later.
+    ## Load the labels from the features.txt file.
     features <- read.table("./UCI HAR Dataset/features.txt")
     
     ## Label the columns 
     names(X) <- features[,2]
     
+    ## (2) Extract only the measurements on the mean and standard deviation
     ## Only keep columns that contain the text "-mean" or "-std"
     X_cols <- grep("(\\-mean)|(\\-std)", names(X))
     X <- X[,X_cols]
     
-    ## cleanup the names
+    ## cleanup the names while we're at it (back to 4)
     names(X) <- sapply(names(X), cleanupName)
     
-    ## Load the activity labels
+    ## (3) Use descriptive activity names to name the activities
+    ## We have labels - they are in the activity_labels.txt file.
     activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt")
     
-    ## Rename columns so we can do an inner join
+    ## Rename columns so we can do an natural join
     names(activity_labels) <- c("activityID", "activity")
     names(y) <- c("activityID")
     names(subject) <- c("subject")
@@ -69,6 +74,8 @@ tidyMeans <- function() {
     ## Add the subject and activity columns
     X <- cbind(subject, select(y_labeled, activity), X)
 
+    ## (5) Create a tidy data set with the average of each variable 
+    ##  for each activity and each subject
     ## Melt this thing so the remaining columns (not subject or activity)
     ## are pivoted into variable and value.
     melted <- melt(X, id=c("subject", "activity"))
