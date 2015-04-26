@@ -40,7 +40,9 @@ There are no units for the Mean column. The measurement values are normalized to
 The measurement names have been simplified by replacing the "t" prefix with "Time", the "f" prefix with "FFT", punctuation removed, and the entire name is in UpperCamelCase.  For example tBodyAcc-mean()-X becomes "TimeBodyAccMeanX".  This makes it easier to use from within R, especially when using the dplyr and reshape2 packages.  The specific meanings and units of each measurement can be found at http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 ### Instructions
-In the R console load the run_analysis.R file using the source() command, and type 
+- clone the repository
+- Use source() to load the run_analysis.R file
+- At the R console type:
 
 means <- tidyMeans()
 
