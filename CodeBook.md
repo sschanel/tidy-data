@@ -33,7 +33,10 @@ The final data frame consists of the following columns:
 | Measurement   | The description of the measurement                | factor  |      
 | Mean          | The mean of the measurements for a particular Subject/Activity/Measurement combination | numeric |
 
+There are no units for the Mean column. The measurement values are normalized to a range of [-1,1].
+
 ##### Note on the Measurement Name
+
 The measurement names have been simplified by replacing the "t" prefix with "Time", the "f" prefix with "FFT", punctuation removed, and the entire name is in UpperCamelCase.  For example tBodyAcc-mean()-X becomes "TimeBodyAccMeanX".  This makes it easier to use from within R, especially when using the dplyr and reshape2 packages.  The specific meanings and units of each measurement can be found at http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 ### Instructions
